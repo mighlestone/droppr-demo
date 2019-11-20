@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/subscribe', 'SubscribeToListController');
+Route::get('/subscribe', 'Subscribe\ToListController');
