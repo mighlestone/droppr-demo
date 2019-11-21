@@ -44,6 +44,8 @@ class ToListController extends Controller
             ], JsonResponse::HTTP_UNAUTHORIZED);
         }
 
+        // create verify token on user, send confirmation email
+
         return JsonResponse::create(true, JsonResponse::HTTP_OK);
     }
 }
