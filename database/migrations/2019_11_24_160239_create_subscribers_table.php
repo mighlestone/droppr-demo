@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubscriberColumns extends Migration
+class CreateSubscribersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class CreateSubscriberColumns extends Migration
      */
     public function up()
     {
-        Schema::table('subscriber', function (Blueprint $table) {
+        Schema::create('subscribers', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('email');
+            $table->string('country_code', 2);
+            $table->integer('phone_number');
+            $table->timestamps();
             $table->string('stripe_id')->nullable()->index();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four', 4)->nullable();
@@ -27,13 +32,6 @@ class CreateSubscriberColumns extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn([
-                'stripe_id',
-                'card_brand',
-                'card_last_four',
-                'trial_ends_at',
-            ]);
-        });
+        Schema::dropIfExists('subscribers');
     }
 }
