@@ -2,7 +2,7 @@
 
 namespace App\Services\Stripe;
 
-use App\Subscriber;
+use App\Models\Subscriber;
 use Illuminate\Support\Collection;
 use Stripe\Exception\ApiErrorException;
 use Stripe\PaymentMethod;

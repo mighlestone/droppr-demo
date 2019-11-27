@@ -3,7 +3,7 @@
 namespace App\Services\Stripe;
 
 use App\Repositories\SubscriberRepository;
-use App\Subscriber;
+use App\Models\Subscriber;
 use Stripe\Customer;
 
 class CustomerService extends Foundation

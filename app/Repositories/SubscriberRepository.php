@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Subscriber;
+use App\Models\Subscriber;
 use Illuminate\Support\Collection;
 
 class SubscriberRepository

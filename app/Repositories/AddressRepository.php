@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Address;
-use App\Subscriber;
+use App\Models\Address;
+use App\Models\Subscriber;
 use Illuminate\Support\Collection;
 
 class AddressRepository
