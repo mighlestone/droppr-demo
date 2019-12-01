@@ -9,16 +9,17 @@ use Illuminate\Support\Collection;
 class AddressRepository
 {
     /**
-     * @param Collection $address
+     * @param array $address
      * @param Subscriber $subscriber
      * @return Address
      */
-    public function create(Collection $address, Subscriber $subscriber): Address
+    public function create(array $address, Subscriber $subscriber): Address
     {
-        $address = Address::create($address->get('address'));
+        $address += ['subscriber_id' => $subscriber->id];
+        $address = Address::create($address);
 
-        $address->subscriber_id = $subscriber->id;
-        $address->save();
+//        $address->subscriber_id = $subscriber->id;
+//        $address->save();
 
         return $address;
     }

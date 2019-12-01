@@ -18,8 +18,8 @@ class CreateSubscribersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
-            $table->string('country_code', 2);
-            $table->integer('phone_number');
+            $table->string('country_code', 2)->default('gb');
+            $table->bigInteger('phone_number');
             $table->timestamps();
             $table->string('stripe_id')->nullable()->index();
             $table->string('card_brand')->nullable();

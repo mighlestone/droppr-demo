@@ -8,12 +8,12 @@ use Illuminate\Support\Collection;
 class SubscriberRepository
 {
     /**
-     * @param Collection $subscriber
+     * @param array $subscriber
      * @return Subscriber
      */
-    public function create(Collection $subscriber): Subscriber
+    public function create(array $subscriber): Subscriber
     {
-        return Subscriber::create($subscriber->get('subscriber'));
+        return Subscriber::create($subscriber);
     }
 
     public function updateStripeInfo(Subscriber $subscriber, Collection $stripeData)

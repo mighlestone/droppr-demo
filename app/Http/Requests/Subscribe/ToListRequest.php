@@ -32,17 +32,17 @@ class ToListRequest extends FormRequest
         return [
             'subscriber.first_name' => 'required|string|max:100',
             'subscriber.last_name' => 'required|string|max:100',
-            'subscriber.email' => 'required|email|unique:subscriber,email',
-            'subscriber.phone_number' => 'required|numerical|unique:subscriber,phone_number',
+            'subscriber.email' => 'required|email|unique:subscribers,email',
+            'subscriber.phone_number' => 'required|numeric|unique:subscribers,phone_number',
             'address.address_line_1' => 'required|string',
             'address.address_line_2' => 'string',
             'address.address_line_3' => 'string',
             'address.county' => 'required|string',
             'address.postcode' => 'required|string',
-            'card.number' => 'required|numerical|max:16',
-            'card.expiry_month' => 'required|date_format:MM',
-            'card.expiry_year' => 'required|date_format:YYYY',
-            'card.cvc' => 'required|int|min:3|max:4'
+            'card.number' => 'required|numeric|digits_between:16,16',
+            'card.expiry_month' => 'required|date_format:m',
+            'card.expiry_year' => 'required|date_format:Y',
+            'card.cvc' => 'required|numeric|digits_between:3,4'
         ];
     }
 

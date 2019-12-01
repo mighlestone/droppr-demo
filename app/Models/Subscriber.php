@@ -9,6 +9,8 @@ class Subscriber extends Model
 {
     use Billable;
 
+    protected $guarded = [];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

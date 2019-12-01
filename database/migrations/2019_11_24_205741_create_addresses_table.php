@@ -15,7 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('subscriber_id');
+            $table->bigInteger('subscriber_id')->unsigned();
             $table->boolean('default')->default(1);
             $table->string('address_line_1');
             $table->string('address_line_2')->nullable();
@@ -23,6 +23,10 @@ class CreateAddressesTable extends Migration
             $table->string('county');
             $table->string('postcode');
             $table->timestamps();
+
+            $table->foreign('subscriber_id')
+                ->references('id')->on('subscribers')
+                ->onDelete('cascade');
         });
     }
 
